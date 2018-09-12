@@ -163,6 +163,7 @@ def buildSim(cppFlags, dir, type, pgo=None):
         env["CPPFLAGS"] += ' -DHDF5INCPREFIX="hdf5/serial/"'
 
         # add for my case
+        env["HDF5_DIR"] = os.environ["HDF5_DIR"]
         print "Required Environment variable: 'HDF5_DIR'"
         env["CPPFLAGS"] += ' -I ' + joinpath(HDF5_DIR, "/include")
     else:
