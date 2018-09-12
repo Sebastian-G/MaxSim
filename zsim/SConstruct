@@ -161,6 +161,10 @@ def buildSim(cppFlags, dir, type, pgo=None):
         # Serial version, in Ubuntu 15.04 and later.
         env["PINLIBS"] += ["hdf5_serial", "hdf5_serial_hl"]
         env["CPPFLAGS"] += ' -DHDF5INCPREFIX="hdf5/serial/"'
+
+        # add for my case
+        print "Required Environment variable: 'HDF5_DIR'"
+        env["CPPFLAGS"] += ' -I ' + joinpath(HDF5_DIR, "/include")
     else:
        print "ERROR: You need to install libhdf5 in the system"
        sys.exit(1)
